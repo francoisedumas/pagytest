@@ -22,3 +22,10 @@ In the application_helper.rb add
 
 In the views/blog_posts/index.html.erb at the bottom add
 `<%== pagy_nav(@pagy) %>`
+
+In your terminal run `rails c`
+```shell
+50.times do
+  BlogPost.create title: "test post"
+end
+```
