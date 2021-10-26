@@ -1,12 +1,18 @@
 # README
 
+## Navigate the posts with pagy
 <img width="338" alt="Screenshot 2564-10-26 at 21 42 43" src="https://user-images.githubusercontent.com/33062224/138949719-555fafe4-6dbc-47f5-b56d-97a779263f4e.png">
 
+## How to
+Start with rails new
 `rails new pagytest`
+Go to the folder
 `cd pagytest`
+Run a scaffold to save time
 `rails g scaffold BlogPost title body:text`
+Run the migration
 `rails db:migrate`
-`rails c`
+
 
 In the Gemfile add `gem 'pagy'` then `bundle`
 
