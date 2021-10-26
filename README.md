@@ -1,5 +1,7 @@
 # README
 
+<img width="338" alt="Screenshot 2564-10-26 at 21 42 43" src="https://user-images.githubusercontent.com/33062224/138949719-555fafe4-6dbc-47f5-b56d-97a779263f4e.png">
+
 `rails new pagytest`
 `cd pagytest`
 `rails g scaffold BlogPost title body:text`
@@ -29,3 +31,6 @@ In your terminal run `rails c`
   BlogPost.create title: "test post"
 end
 ```
+
+Then run a server with `rails s` & visit the page http://localhost:3000/blog_posts
+Here you go! Enjoy
