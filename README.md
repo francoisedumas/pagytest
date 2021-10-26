@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`rails new pagytest`
+`cd pagytest`
+`rails g scaffold BlogPost title body:text`
+`rails db:migrate`
+`rails c`
 
-Things you may want to cover:
+In the Gemfile add `gem 'pagy'` then `bundle`
 
-* Ruby version
+In the blog_post_controller.rb update the index method
+```ruby
+def index
+    @pagy, @blog_posts = pagy(BlogPost.all)
+end
+```
+In application_controller.rb add
 
-* System dependencies
+`include Pagy::Backend` comment we could add it only in the blog_post_controller.rb
+In the application_helper.rb add
+`include Pagy::Frontend`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In the views/blog_posts/index.html.erb at the bottom add
+`<%== pagy_nav(@pagy) %>`
