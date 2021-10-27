@@ -11,10 +11,12 @@ export default class extends Controller {
   }
 
   createSuccess(event) {
+    console.log("I'm in")
     // This might look a little magical but its just deconstructing the standard rails-ujs event detail
     // Read more here: https://guides.rubyonrails.org/working_with_javascript_in_rails.html#rails-ujs-event-handlers
     const [_data, _status, xhr] = event.detail
-
+    console.log(xhr)
+    console.log("I am in the stimulus")
     this.commentListTarget.innerHTML = xhr.response + this.commentListTarget.innerHTML
     this.commentBodyTarget.value = ''
   }

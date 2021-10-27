@@ -16,7 +16,7 @@
     <% end %>
   </div>
   <div>
-    <%= render partial: "comments/form" %>
+    <%= render partial: "comments/form", locals: { blog_post_id: @blog_post.id } %>
   </div>
 </div>
 

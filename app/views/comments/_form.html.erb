@@ -1,4 +1,4 @@
-<%= form_with model: Comment.new, url: blog_post_comments_path(@blog_post), data: { action: "ajax:success->comments#createSuccess" } do |form| %>
+<%= form_with model: Comment.new, url: blog_post_comments_path(blog_post_id: blog_post_id), data: { action: "ajax:success->comments#createSuccess" } do |form| %>
   <div>
     <%= form.text_field :body, data: { target: "comments.commentBody" }, placeholder: true %>
   </div>
