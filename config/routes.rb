@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :blog_posts
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :blog_posts do
+    resources :comments, only: [:create]
+  end
+  root to: 'blog_posts#index'
 end

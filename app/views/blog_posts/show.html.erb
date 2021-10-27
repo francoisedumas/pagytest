@@ -1,14 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @blog_post.body %>
-</p>
+<div class="comments" data-controller="comments">
+  <h2>Title</h2>
+  <div>
+    <%= @blog_post.title %>
+  </div>
+  <h2>Body</h2>
+  <div>
+    <%= @blog_post.body %>
+  </div>
+  <h2>Comments</h2>
+  <div data-target="comments.commentList">
+    <% @blog_post.comments.each do |comment| %>
+      <%= render partial: "comments/show", locals: { comment: comment } %>
+    <% end %>
+  </div>
+  <div>
+    <%= render partial: "comments/form" %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>
