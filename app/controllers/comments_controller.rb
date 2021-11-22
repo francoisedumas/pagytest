@@ -1,5 +1,17 @@
 class CommentsController < ApplicationController
-  before_action :set_blog_post
+  before_action :set_blog_post, only: :create
+
+  def index
+    if params[:query].present?
+      sql_query = <<~SQL
+        comments.body LIKE :query
+        OR blog_posts.title LIKE :query
+        OR blog_posts.body LIKE :query
+      SQL
+      @comments = Comment.joins(:blog_post).where(sql_query, query: "%#{params[:query]}%")
+      # OR comments.description @@ :query
+    end
+  end
 
   def create
     comment = Comment.new(comment_params)

@@ -1,0 +1,24 @@
+<h1>Comments</h1>
+
+<%= form_tag comments_path, method: :get do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Find a comment" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @comments %>
+  <table>
+    <thead>
+      <tr>
+        <th>Body</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
