@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
         OR blog_posts.body LIKE :query
       SQL
       @comments = Comment.joins(:blog_post).where(sql_query, query: "%#{params[:query]}%")
-      # OR comments.description @@ :query
     end
   end
 
