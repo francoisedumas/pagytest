@@ -3,6 +3,13 @@ class CommentsController < ApplicationController
 
   def index
     if params[:query].present?
+      # Posgresql's version
+      # sql_query = " \
+      #   comments.body @@ :query \
+      #   OR blog_posts.title @@ :query \
+      #   OR blog_posts.body @@ :query \
+      # "
+      # SQlite's version
       sql_query = <<~SQL
         comments.body LIKE :query
         OR blog_posts.title LIKE :query
